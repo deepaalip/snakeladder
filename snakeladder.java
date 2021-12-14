@@ -50,7 +50,7 @@ public class snakeladder {
         	
          case snake: 
         	 position = position - die; 
-        	 if (position <= 100) {
+        	 
                if (position >= 0) {
                 System.out.println("position " + position);
         	 }
@@ -60,7 +60,7 @@ public class snakeladder {
         	     position=0;
         		 System.out.println("position " + position);
         	 }
-        	 }
+        	 
         	 else {
         		 System.out.println("position " + position);
         	 }
