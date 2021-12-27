@@ -1,14 +1,15 @@
 package snakeladder;
 
 public class snakeladder {
+	
 	public static final int  player = 0;
-	 
 	public static final int no_play = 0;
 	public static final int ladder = 1;
 	public static final int snake = 2;
-
-	private static final int START = 0;
-    public static void main(String[] args) {
+        private static final int START = 0;
+	
+	
+        public static void main(String[] args) {
 
 
          int counter_1 = 0,position = 0,counter_2=0,counter_3=0,counter_4=0,position_1=0,cnt_1=0,cnt_2=0,cnt_3=0,cnt_4=0;
