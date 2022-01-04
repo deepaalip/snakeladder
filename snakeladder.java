@@ -1,147 +1,106 @@
 package snakeladder;
+	
+	
+	public class SnakeAndLadder {
 
-public class snakeladder {
-	
-	public static final int  player = 0;
-	public static final int no_play = 0;
-	public static final int ladder = 1;
-	public static final int snake = 2;
-        private static final int START = 0;
-	
-	
         public static void main(String[] args) {
 
 
-         int counter_1 = 0,position = 0,counter_2=0,counter_3=0,counter_4=0,position_1=0,cnt_1=0,cnt_2=0,cnt_3=0,cnt_4=0;
-         System.out.println("starting position of player is:" + START);
-         while(position < 100 && position_1 < 100) {
-         
-        int condition=1;
-        a: while(condition == 1) {
-        	System.out.println("player1");
-        
-        int die = (int)(Math.random()*10)%6 + 1;
-        counter_1=counter_1 + 1;
-        System.out.println("roll dice :" + die);
-          condition = ((int) Math.floor(Math.random()*10)%3);
-          System.out.println("condition " + condition);
-         
-        
-        		 switch(condition) {
-        case no_play:
-        	   
-        		System.out.println("no play");
-        		System.out.println("position " + position);
-        		counter_4= counter_4 + 1;
-        	    break;
-        case ladder:
-        
-        	position = position + die;
-        	if(position <= 100) {
-        	
-        	System.out.println("position " + position);
-            
-        	}
-        	else {
-        		position = position - die;
-        		System.out.println("old position = " + position);
-        	}
-        	counter_2=counter_2+1;
-        	continue a;
-        	
-         case snake: 
-        	 position = position - die; 
-        	 
-               if (position >= 0) {
-                System.out.println("position " + position);
-        	 }
-        	 else
-        	 {
-        		 
-        	     position=0;
-        		 System.out.println("position " + position);
-        	 }
-        	 
-        	 else {
-        		 System.out.println("position " + position);
-        	 }
-        	 counter_3=counter_3 + 1;
-        	    break;
-        	    default:
-        	    	System.out.println("ERROR");
-        	    	break;
-        		 }
-       }
-         
-        
-    }
-          
-    int condition_1=1;
-         b: while(condition_1 == 1) {
-         	System.out.println("player2");
-         
-         int die = (int)(Math.random()*10)%6 + 1;
-         cnt_1=cnt_1 + 1;
-         System.out.println("roll dice :" + die);
-           condition_1 = ((int) Math.floor(Math.random()*10)%3);
-           System.out.println("condition " + condition_1);
-          
-         
-         		 switch(condition_1) {
-         case no_play:
-         	   
-         		System.out.println("no play");
-         		System.out.println("position " + position);
-         		cnt_4= cnt_4 + 1;
-         	    break;
-         case ladder:
-         
-         	position = position + die;
-         	if(position <= 100) {
-         	
-         	System.out.println("position " + position);
-             
-         	}
-         	else {
-         		position = position - die;
-         		System.out.println("old position = " + position);
-         		continue b;
-         	}
-         	cnt_2=cnt_2+1;
-         	
-         	
-          case snake: 
-         	 position = position - die; 
-         	 if (position <= 100) {
-                if (position >= 0) {
-                 System.out.println("position " + position);
-         	 }
-         	 else
-         	 {
-         		 
-         	     position=0;
-         		 System.out.println("position " + position);
-         	 }
-         	 }
-         	 else {
-         		 System.out.println("position " + position);
-         	 }
-         	 cnt_3=cnt_3 + 1;
-         	    break;
-         	    default:
-         	    	System.out.println("ERROR");
-         	    	break;
-         		 }
-          }
-          
-          
-    
-     if (position == 100) {
-    	 System.out.println("player 1 WON");
-     }
-     else {
-    	 System.out.println("player 2 WON");
-     }
+                int position1 = 0;
+
+                int position2 = 0;
+
+                   System.out.println("  Welcome to the game ! ");
+
+
+                                        int dice;
+                                        int option;
+
+                                         //no. of time for Rolling of dice
+                                        int times = 0;
+                                        int roll1 = 0;
+                                        int roll2 = 0;
+
+
+                                                 while (position1 < 100 && position2 < 100) {
+
+                                                 if (roll1 == 0)
+                                                       System.out.println(" 1st Player is Playing");
+                                               else
+                                                       System.out.println(" 2nd Player is playing");
+
+
+
+                                            dice = (int)Math.floor( (Math.random() * 10) % 6 + 1);
+
+                                                              System.out.println(" Value of Dice is " + dice);
+
+                                                 option = (int)Math.floor(Math.random() * 3);
+
+
+                                switch(option) {
+                        case 0:
+                                System.out.println("No Movement Stay the same");
+                                break;
+                                 case 1:
+                                           System.out.println("ladder Oh yes !");
+
+                                        if (roll1 == 0)
+                                        position1 += dice;
+
+                                      else
+                                        position2 += dice;
+
+                                      if (position1 > 100) {
+                                        position1 -= dice;
+                                        System.out.println(" 1st Player counting not more than 100 ");
+                                }
+
+
+                                        if (position2 > 100) {
+                                        position2 -= dice;
+                                        System.out.println(" 2nd Player counting not more than 100 ");
+                                                }
+                                         break;
+
+                                                 case 2:
+                                                        System.out.println(" Oh no ! snake");
+
+                                                          if (roll1 != 0)
+                                                          position1 -= dice;
+
+                                                       else
+                                                        position2 -= dice;
+
+
+                                                       if (position1 < 0) {
+                                                          position1 = 0;
+                                                      System.out.println(" 1st Player1 back to 0");
+                                }
+
+                                                       if (position2 < 0) {
+                                                           position2 = 0;
+                                                       System.out.println(" 2nd Player back to 0");
+                                }
+
+                                                      roll1= (roll1 + 1) % 2;
+                                                      break;
+
+                        }
+
+                                         if (roll2 == 0)
+                                             System.out.println(" Current position of 1st Player- " + position1 + "\n");
+                                          else
+                                             System.out.println(" Current position of 2nd Player- " + position2 + "\n");
+                                              times++;
+
+                        roll2 = roll1;
+                }
+
+                                                       System.out.println(" Congratulation Player" + (roll1 + 1) + "\n");
+                                                       System.out.println(" it takes " + times + " roll times to win the game");
+  }
+
 }
         
 }   
